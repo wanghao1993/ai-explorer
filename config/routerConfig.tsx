@@ -1,4 +1,4 @@
-import { Rows2Icon, LayoutList, Newspaper, User, Wallet } from "lucide-react";
+import { Rows2Icon, LayoutList, Newspaper, User, Bookmark } from "lucide-react";
 
 const RouteConfig = {
   nav: [
@@ -18,6 +18,11 @@ const RouteConfig = {
       title: "个人资料",
       path: "/user/profile",
       icon: <User size={14} />,
+    },
+    {
+      title: "我的收藏",
+      path: "/user/collection",
+      icon: <Bookmark size={14} />,
     },
     {
       title: "我的提交",
