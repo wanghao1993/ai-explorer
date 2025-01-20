@@ -4,7 +4,7 @@ import User from "./User";
 const Header = () => {
   return (
     <header className="bg-gray-800 text-white  items-center">
-      <nav className="container mx-auto p-4 flex justify-between items-center">
+      <nav className="container mx-auto px-4 py-3 flex justify-between items-center">
         <ul className="flex space-x-6">
           {RouteConfig.nav.map((nav) => (
             <li key={nav.path}>
