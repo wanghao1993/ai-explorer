@@ -11,12 +11,18 @@ import RouteConfig from "@/config/routerConfig";
 import { LogOut } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { useLocale } from "next-intl";
-export default function User() {
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+export default async function User() {
   const locale = useLocale();
+  const session = await getServerSession(authOptions);
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Avatar>
+          {session?.user?.name}
+
           <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>

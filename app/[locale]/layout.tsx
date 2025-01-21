@@ -1,14 +1,17 @@
-import type { Metadata } from "next";
+"use client";
+import React, { use, useEffect } from "react";
 
-export const metadata: Metadata = {
-  title: "AI Explorer",
-  description: "Explore the world of AI",
-};
-
-export default async function RootLayout({
+export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = use(params);
+  useEffect(() => {
+    console.log("111");
+    document.documentElement.lang = locale;
+  }, []);
   return <div>{children}</div>;
 }

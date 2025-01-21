@@ -1,3 +1,8 @@
+import SideBar from "./components/CategorySide";
 export default function AiProduct() {
-  return <div>AI product</div>;
+  return (
+    <div className="flex gap-2">
+      <SideBar />
+    </div>
+  );
 }
