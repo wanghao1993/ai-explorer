@@ -37,11 +37,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         createApiResponse("验证码已发送至您的邮箱，请查收")
       );
-    } catch (error: any) {
+    } catch (error) {
       // 发送失败
+      const typedError = error as { message: string; responseCode: number };
       return NextResponse.json(
-        { ...createApiResponse(null, false, error.message) },
-        { status: error.responseCode }
+        { ...createApiResponse(null, false, typedError.message) },
+        { status: typedError.responseCode }
       );
     }
   } else {

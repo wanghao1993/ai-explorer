@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
         },
       });
       return NextResponse.json(createApiResponse(user));
-    } catch (error) {
+    } catch {
       return NextResponse.json(
         { error: "Failed to create user" },
         { status: 500 }

@@ -9,8 +9,10 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import RouteConfig from "@/config/routerConfig";
 import { LogOut } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { useLocale } from "next-intl";
 export default function User() {
+  const locale = useLocale();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -24,7 +26,11 @@ export default function User() {
         <DropdownMenuSeparator />
         {RouteConfig.user.map((route) => (
           <DropdownMenuItem key={route.path}>
-            <Link href={route.path} className="flex items-center space-x-2">
+            <Link
+              href={route.path}
+              className="flex items-center space-x-2"
+              locale={locale}
+            >
               <span>{route.icon}</span>
               <span>{route.title}</span>
             </Link>

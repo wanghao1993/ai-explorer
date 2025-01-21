@@ -1,11 +1,37 @@
-import { ReactNode } from "react";
-
-type Props = {
-  children: ReactNode;
+import type { Metadata } from "next";
+import "./[locale]/globals.css";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+export const metadata: Metadata = {
+  title: "AI Explorer",
+  description: "Explore the world of AI",
 };
 
-// Since we have a `not-found.tsx` page on the root, a layout file
-// is required, even if it's just passing children through.
-export default function RootLayout({ children }: Props) {
-  return children;
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
+  const { locale } = await params;
+
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
+  return (
+    <html suppressHydrationWarning lang={locale}>
+      <NextIntlClientProvider messages={messages}>
+        <body className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow container mx-auto px-4 py-8">
+            {children}
+          </main>
+          <Footer />
+        </body>
+      </NextIntlClientProvider>
+    </html>
+  );
 }

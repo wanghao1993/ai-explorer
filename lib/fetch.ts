@@ -1,11 +1,6 @@
 // lib/api.ts
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-interface Response<T> {
-  code: number;
-  message: string;
-  data: T;
-}
 interface FetcherOptions extends RequestInit {
   body?: any;
 }
@@ -29,7 +24,6 @@ async function fetcher<T>(url: string, options: FetcherOptions): Promise<T> {
     if (json.code === 200) {
       return json.data;
     } else {
-      message.error(json.message);
       return Promise.reject(json.message);
     }
   } catch (e) {

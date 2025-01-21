@@ -26,6 +26,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Link } from "@/i18n/routing";
 
 const registerSchema = z
   .object({
@@ -51,7 +52,7 @@ const registerSchema = z
   });
 export default function RegisterPage() {
   const router = useRouter();
-  const [isVerificationSent, setIsVerificationSent] = useState(false);
+  const [, setIsVerificationSent] = useState(false);
 
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
@@ -182,12 +183,8 @@ export default function RegisterPage() {
           </Form>
         </CardContent>
         <CardFooter>
-          <Button
-            variant="outline"
-            className="w-full"
-            onClick={() => router.push("/auth/sign-in")}
-          >
-            已有账户？登录
+          <Button variant="outline" className="w-full">
+            <Link href="/auth/sign-in">已有账户？登录</Link>
           </Button>
         </CardFooter>
       </Card>
