@@ -10,7 +10,6 @@ export default function RootLayout({
 }) {
   const { locale } = use(params);
   useEffect(() => {
-    console.log("111");
     document.documentElement.lang = locale;
   }, []);
   return <div>{children}</div>;

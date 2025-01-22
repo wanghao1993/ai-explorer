@@ -135,6 +135,25 @@ exports.Prisma.EmailVerificationScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.AiToolsCategoryScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.AiToolsScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  url: 'url',
+  content: 'content',
+  logo_url: 'logo_url',
+  category_id: 'category_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -153,7 +172,9 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  EmailVerification: 'EmailVerification'
+  EmailVerification: 'EmailVerification',
+  AiToolsCategory: 'AiToolsCategory',
+  AiTools: 'AiTools'
 };
 
 /**

@@ -1,4 +1,5 @@
 "use client";
+import { post } from "@/lib/fetch";
 import { signIn } from "next-auth/react";
 export default function SignIn() {
   return (

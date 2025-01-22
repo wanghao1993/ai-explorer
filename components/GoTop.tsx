@@ -19,8 +19,6 @@ export default function GoTop() {
     });
   };
 
-  console.log("GoTop");
-
   useEffect(() => {
     window.addEventListener("scroll", toggleVisibility);
     return () => {

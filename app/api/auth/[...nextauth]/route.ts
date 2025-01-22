@@ -1,7 +1,7 @@
-import NextAuth from "next-auth";
+import NextAuth, { AuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 
-export const authOptions = {
+export const authOptions: AuthOptions = {
   secret: process.env.SECRET_KEY,
   // Configure one or more authentication providers
   providers: [
@@ -14,9 +14,6 @@ export const authOptions = {
     }),
   ],
   debug: process.env.NODE_ENV === "development",
-  pages: {
-    signIn: "/[locale]/auth/sign-in",
-  },
 };
 
 const handler = NextAuth(authOptions);
