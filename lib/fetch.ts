@@ -21,7 +21,7 @@ async function fetcher<T>(url: string, options: FetcherOptions): Promise<T> {
 
       throw error;
     }
-    if (json.code === 200) {
+    if (json.success) {
       return json.data;
     } else {
       return Promise.reject(json.message);

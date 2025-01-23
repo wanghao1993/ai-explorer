@@ -6,7 +6,6 @@ import { createApiResponse } from "@/lib/res";
 export async function GET() {
   try {
     const allCategory = await prisma.aiToolsCategory.findMany();
-    console.log(allCategory, "allCategoryallCategory");
     const allCategoryMap: Record<number, string> = {};
     allCategory.forEach((item) => {
       allCategoryMap[item.id] = item.title;

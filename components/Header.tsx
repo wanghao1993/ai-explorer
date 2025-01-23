@@ -1,27 +1,43 @@
 import RouteConfig from "@/config/routerConfig";
 import User from "./User";
-import { Link } from "@/i18n/routing";
-import { useLocale } from "next-intl";
+import NavigationLink from "./NavigationLink";
+import { useLocale, useTranslations } from "next-intl";
+import { Jersey_15 } from "next/font/google";
+import LocaleSwitcher from "./LocaleSwitch";
+
+// Initialize the font
+const inter = Jersey_15({
+  weight: "400",
+});
 const Header = () => {
   const locale = useLocale();
+  const t = useTranslations("Header");
   return (
-    <header className="bg-gray-800 text-white  items-center">
-      <nav className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <ul className="flex space-x-6">
-          {RouteConfig.nav.map((nav) => (
-            <li key={nav.path}>
-              <Link
-                locale={locale}
-                href={nav.path}
-                className="hover:text-gray-300  space-x-2 flex items-center"
-              >
-                <span>{nav.icon}</span>
-                <span>{nav.title}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <User />
+    <header className="bg-gray-800 text-white  ">
+      <nav className="container mx-auto py-3 flex justify-between items-center">
+        <div className="flex items-center">
+          <div className={`${inter.className} cursor-pointer text-3xl mr-4`}>
+            <NavigationLink href={"/"} locale={locale}>
+              {t("title")}
+            </NavigationLink>
+          </div>
+
+          <ul className="flex space-x-6">
+            {RouteConfig.nav.map((nav) => (
+              <li key={nav.path}>
+                <NavigationLink href={nav.path} locale={locale}>
+                  <span>{nav.icon}</span>
+                  <span>{nav.title}</span>
+                </NavigationLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex items-center space-x-4">
+          <LocaleSwitcher />
+
+          <User />
+        </div>
       </nav>
     </header>
   );

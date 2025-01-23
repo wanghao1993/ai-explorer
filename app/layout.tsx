@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./[locale]/globals.css";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getLocale, getMessages, setRequestLocale } from "next-intl/server";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -16,13 +16,16 @@ export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const locale = await getLocale();
+  setRequestLocale(locale);
   // Providing all messages to the client
   // side is the easiest way to get started
   const messages = await getMessages();
   return (
-    <html suppressHydrationWarning>
-      <NextIntlClientProvider messages={messages}>
+    <html suppressHydrationWarning lang={locale}>
+      <NextIntlClientProvider locale={locale} messages={messages}>
         <body className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow container mx-auto px-4 py-8">
