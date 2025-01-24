@@ -7,18 +7,10 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Link,
-  Locale,
-  redirect,
-  routing,
-  usePathname,
-  useRouter,
-} from "@/i18n/routing";
+import { Locale, routing, usePathname, useRouter } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
-import { useState } from "react";
+import { startTransition, useState } from "react";
 import { Languages } from "lucide-react";
-import NavigationLink from "./NavigationLink";
 
 const LocaleSwitcher = () => {
   const locale = useLocale();
@@ -29,15 +21,9 @@ const LocaleSwitcher = () => {
 
   const localeChange = (v: Locale) => {
     setPosition(v);
-    const newPath = pathname.replace(/\/(en|zh)/, "");
-    router.replace(
-      {
-        pathname: `${newPath}`,
-      },
-      {
-        locale: v,
-      }
-    );
+    startTransition(() => {
+      router.replace(pathname, { locale: v });
+    });
   };
   return (
     <DropdownMenu>
