@@ -5,5 +5,10 @@
       "en": "English",
       "zh": "Simple Chinese"
     }
+  },
+  "Hero": {
+    "title": "AI Explorer",
+    "description": "AI Explorer is a platform for exploring the latest AI technologies and applications.",
+    "create_by": "Created by {name}"
   }
 }

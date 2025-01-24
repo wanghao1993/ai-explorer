@@ -28,13 +28,13 @@ export default async function RootLayout({
       <NextIntlClientProvider locale={locale} messages={messages}>
         <body className="flex flex-col min-h-screen">
           <Header />
-          <main className="flex-grow container mx-auto px-4 py-8">
+          <main className="flex-grow max-h-[calc(100vh-200px)] overflow-auto container mx-auto px-4 py-8">
             {children}
-            <Scripts />
           </main>
           <Footer />
           <GoTop />
         </body>
+        <Scripts />
       </NextIntlClientProvider>
     </html>
   );

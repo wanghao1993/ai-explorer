@@ -13,8 +13,8 @@ const Header = () => {
   const locale = useLocale();
   const t = useTranslations("Header");
   return (
-    <header className="bg-gray-800 text-white  ">
-      <nav className="container mx-auto py-3 flex justify-between items-center">
+    <header className="bg-background-200 text-text-100 py-1">
+      <nav className="container mx-auto  flex justify-between items-center">
         <div className="flex items-center">
           <div className={`${inter.className} cursor-pointer text-3xl mr-4`}>
             <NavigationLink href={"/"} locale={locale}>
