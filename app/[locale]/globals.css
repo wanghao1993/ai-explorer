@@ -8,6 +8,17 @@ body {
 
 @layer base {
   :root {
+    --primary-100:#0077C2;
+    --primary-200:#59a5f5;
+    --primary-300:#c8ffff;
+    --accent-100:#00BFFF;
+    --accent-200:#00619a;
+    --text-100:#333333;
+    --text-200:#5c5c5c;
+    --bg-100:#FFFFFF;
+    --bg-200:#f5f5f5;
+    --bg-300:#cccccc;
+      
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -35,6 +46,17 @@ body {
     --radius: 0.5rem;
   }
   .dark {
+    --primary-100:#E7D1BB;
+    --primary-200:#c8b39e;
+    --primary-300:#84725e;
+    --accent-100:#A096A5;
+    --accent-200:#463e4b;
+    --text-100:#A096A2;
+    --text-200:#847a86;
+    --bg-100:#151931;
+    --bg-200:#252841;
+    --bg-300:#3d3f5b;
+
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
@@ -67,6 +89,6 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background-100 text-text-100;
   }
 }
