@@ -137,7 +137,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\98702438\\Desktop\\ai-explorer\\prisma\\generated\\client",
+      "value": "/Users/isaac/Desktop/ai-explorer/prisma/generated/client",
       "fromEnvVar": null
     },
     "config": {
@@ -146,17 +146,16 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "darwin-arm64",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\98702438\\Desktop\\ai-explorer\\prisma\\schema.prisma",
+    "sourceFilePath": "/Users/isaac/Desktop/ai-explorer/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
-    "schemaEnvPath": "../../../.env"
+    "rootEnvPath": null
   },
   "relativePath": "../..",
   "clientVersion": "6.2.1",
@@ -165,6 +164,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
