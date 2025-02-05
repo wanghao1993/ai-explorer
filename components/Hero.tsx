@@ -10,10 +10,10 @@ export default function Hero() {
   const t = useTranslations("Hero");
   return (
     <section
-      className={` h-[110rem] left-0 flex flex-col items-center justify-center bg-background-200 top-[60px] w-screen  text-primary-900 p-4 ${font.className}`}
+      className={`left-0 flex flex-col items-center justify-center bg-background-200 top-[50px] text-primary-900 p-4 ${font.className}`}
     >
-      <Image src={Logo} alt="logo" width={400} height={102}></Image>
-      <p className="text-2xl relative -top-10 font-bold">
+      <Image src={Logo} alt="logo" width={400} height={292}></Image>
+      <p className="text-2xl relative -top-10 font-bold text-center">
         {t("description")}{" "}
         <Link
           href="https://github.com/wanghao1993"

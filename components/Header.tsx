@@ -8,12 +8,13 @@ import LocaleSwitcher from "./LocaleSwitch";
 // Initialize the font
 const inter = Jersey_15({
   weight: "400",
+  subsets: ["latin"],
 });
 const Header = () => {
   const locale = useLocale();
   const t = useTranslations("Header");
   return (
-    <header className="bg-background-200 text-text-100 py-1">
+    <header className="bg-background-200 text-text-100 py-1 px-2">
       <nav className="container mx-auto  flex justify-between items-center">
         <div className="flex items-center">
           <div className={`${inter.className} cursor-pointer text-3xl mr-4`}>

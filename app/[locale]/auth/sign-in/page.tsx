@@ -8,7 +8,7 @@ export default function SignIn() {
       <p
         onClick={() =>
           signIn("github", {
-            callbackUrl: "http://localhost:3001/en/auth/sign-in",
+            callbackUrl: window.location.href,
           })
         }
       >

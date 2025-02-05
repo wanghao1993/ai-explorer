@@ -15,7 +15,7 @@ import { Languages } from "lucide-react";
 const LocaleSwitcher = () => {
   const locale = useLocale();
   const t = useTranslations("Header");
-  const [position, setPosition] = useState<Locale>(routing.defaultLocale);
+  const [position, setPosition] = useState<Locale>(locale as Locale);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -25,6 +25,7 @@ const LocaleSwitcher = () => {
       router.replace(pathname, { locale: v });
     });
   };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
