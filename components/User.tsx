@@ -21,7 +21,7 @@ export default async function User() {
   const session = await getServerSession(authOptions);
   return !session?.user ? (
     <Button>
-      <Link href={`/auth/sign-in?redirect=${location.href}`} locale={locale}>
+      <Link href={`/auth/sign-in`} locale={locale}>
         {t("user.signIn")}
       </Link>
     </Button>
