@@ -5,6 +5,7 @@ import Logo from "../public/logo.svg";
 import Link from "next/link";
 const font = Oswald({
   weight: "400",
+  subsets: ["latin"],
 });
 export default function Hero() {
   const t = useTranslations("Hero");
