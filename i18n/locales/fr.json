@@ -1,0 +1,30 @@
+{
+  "Header": {
+    "title": "Explorateur IA",
+    "localeSwitcher": {
+      "en": "Anglais",
+      "zh": "简体中文",
+      "fr": "Français",
+      "ja": "Japonais"
+    },
+    "user": {
+      "signout": "Déconnexion",
+      "signIn": "Connexion"
+    },
+    "nav": {
+      "aiProduct": "Outils",
+      "aiNews": "Actualités",
+      "management": "Gestion",
+      "profile": "Profil",
+      "collection": "Ma Collection",
+      "mySubmission": "Ma Soumission"
+    }
+  },
+  "Hero": {
+    "title": "Explorateur IA",
+    "description": "Explorateur IA est une plateforme pour explorer les dernières technologies et applications de l'IA.",
+    "create_by": "Créé par {name}",
+    "introduction": "Collectez les outils IA les plus populaires, les dernières informations sur l'IA et la co-création communautaire.",
+    "searchPlaceholder": "Entrez le mot-clé pour rechercher un outil IA"
+  }
+}

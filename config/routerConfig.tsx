@@ -1,3 +1,4 @@
+import { getTranslation } from "@/i18n/utils";
 import {
   Rows2Icon,
   LayoutList,
@@ -7,41 +8,41 @@ import {
   BotIcon,
 } from "lucide-react";
 
-const RouteConfig = {
-  nav: [
-    {
-      title: "AI产品",
-      path: "/ai-product",
-      icon: <LayoutList size={18} />,
-    },
-    {
-      title: "AI资讯",
-      path: "/ai-news",
-      icon: <Newspaper size={18} />,
-    },
-  ],
-  user: [
-    {
-      title: "后台管理",
-      path: "/management",
-      icon: <BotIcon size={14} />,
-    },
-    {
-      title: "个人资料",
-      path: "/user/profile",
-      icon: <User size={14} />,
-    },
-    {
-      title: "我的收藏",
-      path: "/user/collection",
-      icon: <Bookmark size={14} />,
-    },
-    {
-      title: "我的提交",
-      path: "/user/submissions",
-      icon: <Rows2Icon size={14} />,
-    },
-  ],
-};
-
-export default RouteConfig;
+export default function routerConfig() {
+  return {
+    nav: [
+      {
+        title: getTranslation("Header", "nav.aiProduct"),
+        path: "/ai-product",
+        icon: <LayoutList size={18} />,
+      },
+      {
+        title: getTranslation("Header", "nav.aiNews"),
+        path: "/ai-news",
+        icon: <Newspaper size={18} />,
+      },
+    ],
+    user: [
+      {
+        title: getTranslation("Header", "nav.management"),
+        path: "/management",
+        icon: <BotIcon size={14} />,
+      },
+      {
+        title: getTranslation("Header", "nav.profile"),
+        path: "/user/profile",
+        icon: <User size={14} />,
+      },
+      {
+        title: getTranslation("Header", "nav.collection"),
+        path: "/user/collection",
+        icon: <Bookmark size={14} />,
+      },
+      {
+        title: getTranslation("Header", "nav.mySubmission"),
+        path: "/user/submissions",
+        icon: <Rows2Icon size={14} />,
+      },
+    ],
+  };
+}

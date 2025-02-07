@@ -40,7 +40,7 @@ export default async function User() {
         <DropdownMenuContent>
           <DropdownMenuLabel>{session.user?.name}</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          {RouteConfig.user.map((route) => (
+          {RouteConfig().user.map((route) => (
             <DropdownMenuItem key={route.path}>
               <Link
                 href={route.path}

@@ -1,0 +1,30 @@
+{
+  "Header": {
+    "title": "AIエクスプローラー",
+    "localeSwitcher": {
+      "en": "英語",
+      "zh": "简体中文",
+      "fr": "フランス語で",
+      "ja": "日本語で"
+    },
+    "user": {
+      "signout": "サインアウト",
+      "signIn": "サインイン"
+    },
+    "nav": {
+      "aiProduct": "ツール",
+      "aiNews": "ニュース",
+      "management": "管理",
+      "profile": "プロフィール",
+      "collection": "私のコレクション",
+      "mySubmission": "私の提出物"
+    }
+  },
+  "Hero": {
+    "title": "AIエクスプローラー",
+    "description": "AIエクスプローラーは、最新のAI技術とアプリケーションを探索するためのプラットフォームです。",
+    "create_by": "{name}によって作成されました",
+    "introduction": "最も人気のあるAIツール、最新のAI情報、コミュニティ共創を収集します。",
+    "searchPlaceholder": "キーワードを入力してAIツールを検索"
+  }
+}

@@ -24,7 +24,7 @@ const Header = () => {
           </div>
 
           <ul className="flex space-x-6">
-            {RouteConfig.nav.map((nav) => (
+            {RouteConfig().nav.map((nav) => (
               <li key={nav.path}>
                 <NavigationLink href={nav.path} locale={locale}>
                   <span>{nav.icon}</span>

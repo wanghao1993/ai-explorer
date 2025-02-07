@@ -1,18 +1,30 @@
 {
   "Header": {
-    "title": "AI Explorer2",
+    "title": "AI Explorer",
     "localeSwitcher": {
       "en": "英文",
-      "zh": "简体中文"
+      "zh": "简体中文",
+      "fr": "法语",
+      "ja": "日语"
     },
     "user": {
       "signout": "登 出",
       "signIn": "登 入"
+    },
+    "nav": {
+      "aiProduct": "AI产品",
+      "aiNews": "AI资讯",
+      "management": "平台管理",
+      "profile": "个人中心",
+      "collection": "我的收藏",
+      "mySubmission": "我的提交"
     }
   },
   "Hero": {
     "title": "AI Explorer",
     "description": "AI Explorer 是一个用于探索最新人工智能技术和应用的平台。",
-    "create_by": "由 {name} 创建"
+    "create_by": "由 {name} 创建",
+    "introduction": "收录最热门AI工具，最新AI资讯，社区共创",
+    "searchPlaceholder": "输入关键词搜索ai工具"
   }
 }

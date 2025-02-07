@@ -27,7 +27,7 @@ export default function GoTop() {
   }, []);
 
   return (
-    <div className="absolute right-4 bottom-20">
+    <div className="fixed right-4 bottom-20">
       {isVisible && (
         <div
           className="w-10 h-10 flex items-center justify-center rounded-full cursor-pointer bg-black text-white"
