@@ -4,7 +4,7 @@ import NavigationLink from "./NavigationLink";
 import { useLocale, useTranslations } from "next-intl";
 import { Jersey_15 } from "next/font/google";
 import LocaleSwitcher from "./LocaleSwitch";
-
+import Image from "next/image";
 // Initialize the font
 const inter = Jersey_15({
   weight: "400",
@@ -14,12 +14,18 @@ const Header = () => {
   const locale = useLocale();
   const t = useTranslations("Header");
   return (
-    <header className="bg-background-200 text-text-100 py-1 px-2">
+    <header className="text-text-100 py-1 px-2">
       <nav className="container mx-auto  flex justify-between items-center">
         <div className="flex items-center">
           <div className={`${inter.className} cursor-pointer text-3xl mr-4`}>
             <NavigationLink href={"/"} locale={locale}>
-              {t("title")}
+              <Image
+                src={"/logo.svg"}
+                alt="logo"
+                height={60}
+                width={60}
+                priority={true}
+              ></Image>
             </NavigationLink>
           </div>
 

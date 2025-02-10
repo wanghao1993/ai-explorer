@@ -23,8 +23,10 @@
   "Hero": {
     "title": "AI Explorer",
     "description": "AI Explorer 是一个用于探索最新人工智能技术和应用的平台。",
-    "create_by": "由 {name} 创建",
-    "introduction": "收录最热门AI工具，最新AI资讯，社区共创",
-    "searchPlaceholder": "输入关键词搜索ai工具"
+    "introduction": "收录最热门AI工具，最新AI资讯",
+    "searchPlaceholder": "输入关键词搜索ai工具",
+    "create_by_community": "社区共创",
+    "today_tools": "今日发射",
+    "today_news": "今日资讯"
   }
 }

@@ -17,16 +17,19 @@ export default function ContentLayout({
     setMounted(true);
   }, [pathList, path]);
 
-  return (
-    mounted &&
-    (isFullWidth ? (
-      <main className="flex-grow max-h-[calc(100vh-108x)] overflow-auto ">
+  if (mounted) {
+    return isFullWidth ? (
+      <main className="flex-grow min-h-[calc(100vh-108x)] overflow-auto ">
         {children}
       </main>
     ) : (
-      <main className="flex-grow max-h-[calc(100vh-108x)] overflow-auto container mx-auto py-8 px-4">
+      <main className="flex-grow min-h-[calc(100vh-108x)] overflow-auto container mx-auto py-8 px-4">
         {children}
       </main>
-    ))
-  );
+    );
+  } else {
+    return (
+      <main className="flex-grow min-h-[calc(100vh-108x)] overflow-auto "></main>
+    );
+  }
 }

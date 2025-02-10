@@ -5,11 +5,11 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
+/* #84c9ef,#b4d2ed,#cbbddd,#dcb5d4,#e3b1d2 */
 @layer base {
   :root {
-    --primary-100:#0077C2;
-    --primary-200:#59a5f5;
+    --primary-100:#065758;
+    --primary-200:#82c3c5;
     --primary-300:#c8ffff;
     --accent-100:#00BFFF;
     --accent-200:#00619a;
