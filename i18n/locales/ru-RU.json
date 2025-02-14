@@ -25,6 +25,19 @@
     "description": "AI Explorer is a platform for exploring the latest AI technologies and applications.",
     "create_by": "Created by {name}",
     "introduction": "Collect the most popular AI tools, the latest AI information, and community co-creation.",
-    "searchPlaceholder": "Enter keyword search ai tool"
+    "searchPlaceholder": "Enter keyword search ai tool",
+    "create_by_community": "社区共创",
+    "today_tools": "今日发射",
+    "today_news": "今日资讯"
+  },
+  "Category": {
+    "toolsCategory": "Category",
+    "name": "Name",
+    "description": "Description",
+    "submitter": "Submitter",
+    "created_at": "created_at",
+    "updated_at": "updated_at",
+    "add": "Add Category",
+    "op": "Operation"
   }
 }
