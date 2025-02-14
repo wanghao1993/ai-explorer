@@ -24,9 +24,31 @@
     "title": "AI Explorer",
     "description": "AI Explorer 是一个用于探索最新人工智能技术和应用的平台。",
     "introduction": "收录最热门AI工具，最新AI资讯",
-    "searchPlaceholder": "输入关键词搜索ai工具",
+    "searchPlaceholder": "输入关键词搜索ai工具un",
     "create_by_community": "社区共创",
     "today_tools": "今日发射",
     "today_news": "今日资讯"
+  },
+  "Category": {
+    "toolsCategory": "工具分类",
+    "name": "名称",
+    "description": "描述",
+    "submitter": "提交者",
+    "created_at": "创建时间",
+    "updated_at": "更新时间",
+    "addCategory": "添加分类",
+    "editCategory": "编辑分类",
+    "op": "操作",
+    "search": "搜索",
+    "save": "保存",
+    "form": {
+      "name": "分类名称",
+      "addCategoryDescription": "需要输入分类名称和描述",
+      "description": "分类描述",
+      "namePlaceholder": "请输入分类名称",
+      "descriptionPlaceholder": "请输入分类描述",
+      "nameValidation": "请输入分类名称",
+      "descriptionValidation": "请输入分类描述"
+    }
   }
 }

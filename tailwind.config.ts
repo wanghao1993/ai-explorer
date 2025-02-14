@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+import { addDynamicIconSelectors } from "@iconify/tailwind";
 export default {
   darkMode: ["class"],
   content: [
@@ -11,7 +11,7 @@ export default {
     extend: {
       colors: {
         background: {
-          DEFAULT: "hsl(var(--bg-100))",
+          DEFAULT: "hsl(var(--background))",
           foreground: "hsl(var(--background-foreground))",
           100: "var(--bg-100)",
           200: "var(--bg-200)",
@@ -74,5 +74,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), addDynamicIconSelectors()],
 } satisfies Config;

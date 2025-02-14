@@ -33,11 +33,14 @@ model EmailVerification {
 }
 
 model AiToolsCategory {
-  id         Int       @id @default(autoincrement())
-  title      String
-  created_at DateTime  @default(now())
-  updated_at DateTime  @updatedAt
-  AiTools    AiTools[]
+  category_id   Int       @id @default(autoincrement())
+  category_name String
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+  icon          String?
+  description   String?
+  submitter     String    @default("admin")
+  AiTools       AiTools[]
 }
 
 model AiTools {
@@ -45,10 +48,9 @@ model AiTools {
   title       String
   description String
   url         String
-  content     String
   logo_url    String          @default("https://ai-explor.cn/favicon.ico")
   category_id Int
   created_at  DateTime        @default(now())
   updated_at  DateTime        @updatedAt
-  category    AiToolsCategory @relation(fields: [category_id], references: [id])
+  category    AiToolsCategory @relation(fields: [category_id], references: [category_id])
 }

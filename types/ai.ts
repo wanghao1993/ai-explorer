@@ -13,8 +13,10 @@ export declare namespace AiTypes {
   }
 
   interface AiCategory {
-    id: number;
-    title: string;
+    category_id: number;
+    category_name: string;
+    description?: string;
+    submitter: string;
     created_at: Date;
     updated_at: Date;
   }

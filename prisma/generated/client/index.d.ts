@@ -3174,63 +3174,81 @@ export namespace Prisma {
   }
 
   export type AiToolsCategoryAvgAggregateOutputType = {
-    id: number | null
+    category_id: number | null
   }
 
   export type AiToolsCategorySumAggregateOutputType = {
-    id: number | null
+    category_id: number | null
   }
 
   export type AiToolsCategoryMinAggregateOutputType = {
-    id: number | null
-    title: string | null
+    category_id: number | null
+    category_name: string | null
     created_at: Date | null
     updated_at: Date | null
+    icon: string | null
+    description: string | null
+    submitter: string | null
   }
 
   export type AiToolsCategoryMaxAggregateOutputType = {
-    id: number | null
-    title: string | null
+    category_id: number | null
+    category_name: string | null
     created_at: Date | null
     updated_at: Date | null
+    icon: string | null
+    description: string | null
+    submitter: string | null
   }
 
   export type AiToolsCategoryCountAggregateOutputType = {
-    id: number
-    title: number
+    category_id: number
+    category_name: number
     created_at: number
     updated_at: number
+    icon: number
+    description: number
+    submitter: number
     _all: number
   }
 
 
   export type AiToolsCategoryAvgAggregateInputType = {
-    id?: true
+    category_id?: true
   }
 
   export type AiToolsCategorySumAggregateInputType = {
-    id?: true
+    category_id?: true
   }
 
   export type AiToolsCategoryMinAggregateInputType = {
-    id?: true
-    title?: true
+    category_id?: true
+    category_name?: true
     created_at?: true
     updated_at?: true
+    icon?: true
+    description?: true
+    submitter?: true
   }
 
   export type AiToolsCategoryMaxAggregateInputType = {
-    id?: true
-    title?: true
+    category_id?: true
+    category_name?: true
     created_at?: true
     updated_at?: true
+    icon?: true
+    description?: true
+    submitter?: true
   }
 
   export type AiToolsCategoryCountAggregateInputType = {
-    id?: true
-    title?: true
+    category_id?: true
+    category_name?: true
     created_at?: true
     updated_at?: true
+    icon?: true
+    description?: true
+    submitter?: true
     _all?: true
   }
 
@@ -3321,10 +3339,13 @@ export namespace Prisma {
   }
 
   export type AiToolsCategoryGroupByOutputType = {
-    id: number
-    title: string
+    category_id: number
+    category_name: string
     created_at: Date
     updated_at: Date
+    icon: string | null
+    description: string | null
+    submitter: string
     _count: AiToolsCategoryCountAggregateOutputType | null
     _avg: AiToolsCategoryAvgAggregateOutputType | null
     _sum: AiToolsCategorySumAggregateOutputType | null
@@ -3347,36 +3368,48 @@ export namespace Prisma {
 
 
   export type AiToolsCategorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    title?: boolean
+    category_id?: boolean
+    category_name?: boolean
     created_at?: boolean
     updated_at?: boolean
+    icon?: boolean
+    description?: boolean
+    submitter?: boolean
     AiTools?: boolean | AiToolsCategory$AiToolsArgs<ExtArgs>
     _count?: boolean | AiToolsCategoryCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["aiToolsCategory"]>
 
   export type AiToolsCategorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    title?: boolean
+    category_id?: boolean
+    category_name?: boolean
     created_at?: boolean
     updated_at?: boolean
+    icon?: boolean
+    description?: boolean
+    submitter?: boolean
   }, ExtArgs["result"]["aiToolsCategory"]>
 
   export type AiToolsCategorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    title?: boolean
+    category_id?: boolean
+    category_name?: boolean
     created_at?: boolean
     updated_at?: boolean
+    icon?: boolean
+    description?: boolean
+    submitter?: boolean
   }, ExtArgs["result"]["aiToolsCategory"]>
 
   export type AiToolsCategorySelectScalar = {
-    id?: boolean
-    title?: boolean
+    category_id?: boolean
+    category_name?: boolean
     created_at?: boolean
     updated_at?: boolean
+    icon?: boolean
+    description?: boolean
+    submitter?: boolean
   }
 
-  export type AiToolsCategoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "created_at" | "updated_at", ExtArgs["result"]["aiToolsCategory"]>
+  export type AiToolsCategoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"category_id" | "category_name" | "created_at" | "updated_at" | "icon" | "description" | "submitter", ExtArgs["result"]["aiToolsCategory"]>
   export type AiToolsCategoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     AiTools?: boolean | AiToolsCategory$AiToolsArgs<ExtArgs>
     _count?: boolean | AiToolsCategoryCountOutputTypeDefaultArgs<ExtArgs>
@@ -3390,10 +3423,13 @@ export namespace Prisma {
       AiTools: Prisma.$AiToolsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      title: string
+      category_id: number
+      category_name: string
       created_at: Date
       updated_at: Date
+      icon: string | null
+      description: string | null
+      submitter: string
     }, ExtArgs["result"]["aiToolsCategory"]>
     composites: {}
   }
@@ -3477,8 +3513,8 @@ export namespace Prisma {
      * // Get first 10 AiToolsCategories
      * const aiToolsCategories = await prisma.aiToolsCategory.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const aiToolsCategoryWithIdOnly = await prisma.aiToolsCategory.findMany({ select: { id: true } })
+     * // Only select the `category_id`
+     * const aiToolsCategoryWithCategory_idOnly = await prisma.aiToolsCategory.findMany({ select: { category_id: true } })
      * 
      */
     findMany<T extends AiToolsCategoryFindManyArgs>(args?: SelectSubset<T, AiToolsCategoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AiToolsCategoryPayload<ExtArgs>, T, "findMany", ClientOptions>>
@@ -3522,9 +3558,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many AiToolsCategories and only return the `id`
-     * const aiToolsCategoryWithIdOnly = await prisma.aiToolsCategory.createManyAndReturn({
-     *   select: { id: true },
+     * // Create many AiToolsCategories and only return the `category_id`
+     * const aiToolsCategoryWithCategory_idOnly = await prisma.aiToolsCategory.createManyAndReturn({
+     *   select: { category_id: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -3613,9 +3649,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more AiToolsCategories and only return the `id`
-     * const aiToolsCategoryWithIdOnly = await prisma.aiToolsCategory.updateManyAndReturn({
-     *   select: { id: true },
+     * // Update zero or more AiToolsCategories and only return the `category_id`
+     * const aiToolsCategoryWithCategory_idOnly = await prisma.aiToolsCategory.updateManyAndReturn({
+     *   select: { category_id: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3818,10 +3854,13 @@ export namespace Prisma {
    * Fields of the AiToolsCategory model
    */ 
   interface AiToolsCategoryFieldRefs {
-    readonly id: FieldRef<"AiToolsCategory", 'Int'>
-    readonly title: FieldRef<"AiToolsCategory", 'String'>
+    readonly category_id: FieldRef<"AiToolsCategory", 'Int'>
+    readonly category_name: FieldRef<"AiToolsCategory", 'String'>
     readonly created_at: FieldRef<"AiToolsCategory", 'DateTime'>
     readonly updated_at: FieldRef<"AiToolsCategory", 'DateTime'>
+    readonly icon: FieldRef<"AiToolsCategory", 'String'>
+    readonly description: FieldRef<"AiToolsCategory", 'String'>
+    readonly submitter: FieldRef<"AiToolsCategory", 'String'>
   }
     
 
@@ -4267,7 +4306,6 @@ export namespace Prisma {
     title: string | null
     description: string | null
     url: string | null
-    content: string | null
     logo_url: string | null
     category_id: number | null
     created_at: Date | null
@@ -4279,7 +4317,6 @@ export namespace Prisma {
     title: string | null
     description: string | null
     url: string | null
-    content: string | null
     logo_url: string | null
     category_id: number | null
     created_at: Date | null
@@ -4291,7 +4328,6 @@ export namespace Prisma {
     title: number
     description: number
     url: number
-    content: number
     logo_url: number
     category_id: number
     created_at: number
@@ -4315,7 +4351,6 @@ export namespace Prisma {
     title?: true
     description?: true
     url?: true
-    content?: true
     logo_url?: true
     category_id?: true
     created_at?: true
@@ -4327,7 +4362,6 @@ export namespace Prisma {
     title?: true
     description?: true
     url?: true
-    content?: true
     logo_url?: true
     category_id?: true
     created_at?: true
@@ -4339,7 +4373,6 @@ export namespace Prisma {
     title?: true
     description?: true
     url?: true
-    content?: true
     logo_url?: true
     category_id?: true
     created_at?: true
@@ -4438,7 +4471,6 @@ export namespace Prisma {
     title: string
     description: string
     url: string
-    content: string
     logo_url: string
     category_id: number
     created_at: Date
@@ -4469,7 +4501,6 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     url?: boolean
-    content?: boolean
     logo_url?: boolean
     category_id?: boolean
     created_at?: boolean
@@ -4482,7 +4513,6 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     url?: boolean
-    content?: boolean
     logo_url?: boolean
     category_id?: boolean
     created_at?: boolean
@@ -4495,7 +4525,6 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     url?: boolean
-    content?: boolean
     logo_url?: boolean
     category_id?: boolean
     created_at?: boolean
@@ -4508,14 +4537,13 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     url?: boolean
-    content?: boolean
     logo_url?: boolean
     category_id?: boolean
     created_at?: boolean
     updated_at?: boolean
   }
 
-  export type AiToolsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "url" | "content" | "logo_url" | "category_id" | "created_at" | "updated_at", ExtArgs["result"]["aiTools"]>
+  export type AiToolsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "url" | "logo_url" | "category_id" | "created_at" | "updated_at", ExtArgs["result"]["aiTools"]>
   export type AiToolsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | AiToolsCategoryDefaultArgs<ExtArgs>
   }
@@ -4536,7 +4564,6 @@ export namespace Prisma {
       title: string
       description: string
       url: string
-      content: string
       logo_url: string
       category_id: number
       created_at: Date
@@ -4969,7 +4996,6 @@ export namespace Prisma {
     readonly title: FieldRef<"AiTools", 'String'>
     readonly description: FieldRef<"AiTools", 'String'>
     readonly url: FieldRef<"AiTools", 'String'>
-    readonly content: FieldRef<"AiTools", 'String'>
     readonly logo_url: FieldRef<"AiTools", 'String'>
     readonly category_id: FieldRef<"AiTools", 'Int'>
     readonly created_at: FieldRef<"AiTools", 'DateTime'>
@@ -5415,10 +5441,13 @@ export namespace Prisma {
 
 
   export const AiToolsCategoryScalarFieldEnum: {
-    id: 'id',
-    title: 'title',
+    category_id: 'category_id',
+    category_name: 'category_name',
     created_at: 'created_at',
-    updated_at: 'updated_at'
+    updated_at: 'updated_at',
+    icon: 'icon',
+    description: 'description',
+    submitter: 'submitter'
   };
 
   export type AiToolsCategoryScalarFieldEnum = (typeof AiToolsCategoryScalarFieldEnum)[keyof typeof AiToolsCategoryScalarFieldEnum]
@@ -5429,7 +5458,6 @@ export namespace Prisma {
     title: 'title',
     description: 'description',
     url: 'url',
-    content: 'content',
     logo_url: 'logo_url',
     category_id: 'category_id',
     created_at: 'created_at',
@@ -5645,37 +5673,49 @@ export namespace Prisma {
     AND?: AiToolsCategoryWhereInput | AiToolsCategoryWhereInput[]
     OR?: AiToolsCategoryWhereInput[]
     NOT?: AiToolsCategoryWhereInput | AiToolsCategoryWhereInput[]
-    id?: IntFilter<"AiToolsCategory"> | number
-    title?: StringFilter<"AiToolsCategory"> | string
+    category_id?: IntFilter<"AiToolsCategory"> | number
+    category_name?: StringFilter<"AiToolsCategory"> | string
     created_at?: DateTimeFilter<"AiToolsCategory"> | Date | string
     updated_at?: DateTimeFilter<"AiToolsCategory"> | Date | string
+    icon?: StringNullableFilter<"AiToolsCategory"> | string | null
+    description?: StringNullableFilter<"AiToolsCategory"> | string | null
+    submitter?: StringFilter<"AiToolsCategory"> | string
     AiTools?: AiToolsListRelationFilter
   }
 
   export type AiToolsCategoryOrderByWithRelationInput = {
-    id?: SortOrder
-    title?: SortOrder
+    category_id?: SortOrder
+    category_name?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    icon?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    submitter?: SortOrder
     AiTools?: AiToolsOrderByRelationAggregateInput
   }
 
   export type AiToolsCategoryWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    category_id?: number
     AND?: AiToolsCategoryWhereInput | AiToolsCategoryWhereInput[]
     OR?: AiToolsCategoryWhereInput[]
     NOT?: AiToolsCategoryWhereInput | AiToolsCategoryWhereInput[]
-    title?: StringFilter<"AiToolsCategory"> | string
+    category_name?: StringFilter<"AiToolsCategory"> | string
     created_at?: DateTimeFilter<"AiToolsCategory"> | Date | string
     updated_at?: DateTimeFilter<"AiToolsCategory"> | Date | string
+    icon?: StringNullableFilter<"AiToolsCategory"> | string | null
+    description?: StringNullableFilter<"AiToolsCategory"> | string | null
+    submitter?: StringFilter<"AiToolsCategory"> | string
     AiTools?: AiToolsListRelationFilter
-  }, "id">
+  }, "category_id">
 
   export type AiToolsCategoryOrderByWithAggregationInput = {
-    id?: SortOrder
-    title?: SortOrder
+    category_id?: SortOrder
+    category_name?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    icon?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    submitter?: SortOrder
     _count?: AiToolsCategoryCountOrderByAggregateInput
     _avg?: AiToolsCategoryAvgOrderByAggregateInput
     _max?: AiToolsCategoryMaxOrderByAggregateInput
@@ -5687,10 +5727,13 @@ export namespace Prisma {
     AND?: AiToolsCategoryScalarWhereWithAggregatesInput | AiToolsCategoryScalarWhereWithAggregatesInput[]
     OR?: AiToolsCategoryScalarWhereWithAggregatesInput[]
     NOT?: AiToolsCategoryScalarWhereWithAggregatesInput | AiToolsCategoryScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"AiToolsCategory"> | number
-    title?: StringWithAggregatesFilter<"AiToolsCategory"> | string
+    category_id?: IntWithAggregatesFilter<"AiToolsCategory"> | number
+    category_name?: StringWithAggregatesFilter<"AiToolsCategory"> | string
     created_at?: DateTimeWithAggregatesFilter<"AiToolsCategory"> | Date | string
     updated_at?: DateTimeWithAggregatesFilter<"AiToolsCategory"> | Date | string
+    icon?: StringNullableWithAggregatesFilter<"AiToolsCategory"> | string | null
+    description?: StringNullableWithAggregatesFilter<"AiToolsCategory"> | string | null
+    submitter?: StringWithAggregatesFilter<"AiToolsCategory"> | string
   }
 
   export type AiToolsWhereInput = {
@@ -5701,7 +5744,6 @@ export namespace Prisma {
     title?: StringFilter<"AiTools"> | string
     description?: StringFilter<"AiTools"> | string
     url?: StringFilter<"AiTools"> | string
-    content?: StringFilter<"AiTools"> | string
     logo_url?: StringFilter<"AiTools"> | string
     category_id?: IntFilter<"AiTools"> | number
     created_at?: DateTimeFilter<"AiTools"> | Date | string
@@ -5714,7 +5756,6 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     url?: SortOrder
-    content?: SortOrder
     logo_url?: SortOrder
     category_id?: SortOrder
     created_at?: SortOrder
@@ -5730,7 +5771,6 @@ export namespace Prisma {
     title?: StringFilter<"AiTools"> | string
     description?: StringFilter<"AiTools"> | string
     url?: StringFilter<"AiTools"> | string
-    content?: StringFilter<"AiTools"> | string
     logo_url?: StringFilter<"AiTools"> | string
     category_id?: IntFilter<"AiTools"> | number
     created_at?: DateTimeFilter<"AiTools"> | Date | string
@@ -5743,7 +5783,6 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     url?: SortOrder
-    content?: SortOrder
     logo_url?: SortOrder
     category_id?: SortOrder
     created_at?: SortOrder
@@ -5763,7 +5802,6 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"AiTools"> | string
     description?: StringWithAggregatesFilter<"AiTools"> | string
     url?: StringWithAggregatesFilter<"AiTools"> | string
-    content?: StringWithAggregatesFilter<"AiTools"> | string
     logo_url?: StringWithAggregatesFilter<"AiTools"> | string
     category_id?: IntWithAggregatesFilter<"AiTools"> | number
     created_at?: DateTimeWithAggregatesFilter<"AiTools"> | Date | string
@@ -5897,60 +5935,80 @@ export namespace Prisma {
   }
 
   export type AiToolsCategoryCreateInput = {
-    title: string
+    category_name: string
     created_at?: Date | string
     updated_at?: Date | string
+    icon?: string | null
+    description?: string | null
+    submitter?: string
     AiTools?: AiToolsCreateNestedManyWithoutCategoryInput
   }
 
   export type AiToolsCategoryUncheckedCreateInput = {
-    id?: number
-    title: string
+    category_id?: number
+    category_name: string
     created_at?: Date | string
     updated_at?: Date | string
+    icon?: string | null
+    description?: string | null
+    submitter?: string
     AiTools?: AiToolsUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type AiToolsCategoryUpdateInput = {
-    title?: StringFieldUpdateOperationsInput | string
+    category_name?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    submitter?: StringFieldUpdateOperationsInput | string
     AiTools?: AiToolsUpdateManyWithoutCategoryNestedInput
   }
 
   export type AiToolsCategoryUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
+    category_id?: IntFieldUpdateOperationsInput | number
+    category_name?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    submitter?: StringFieldUpdateOperationsInput | string
     AiTools?: AiToolsUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type AiToolsCategoryCreateManyInput = {
-    id?: number
-    title: string
+    category_id?: number
+    category_name: string
     created_at?: Date | string
     updated_at?: Date | string
+    icon?: string | null
+    description?: string | null
+    submitter?: string
   }
 
   export type AiToolsCategoryUpdateManyMutationInput = {
-    title?: StringFieldUpdateOperationsInput | string
+    category_name?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    submitter?: StringFieldUpdateOperationsInput | string
   }
 
   export type AiToolsCategoryUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
+    category_id?: IntFieldUpdateOperationsInput | number
+    category_name?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    submitter?: StringFieldUpdateOperationsInput | string
   }
 
   export type AiToolsCreateInput = {
     title: string
     description: string
     url: string
-    content: string
     logo_url?: string
     created_at?: Date | string
     updated_at?: Date | string
@@ -5962,7 +6020,6 @@ export namespace Prisma {
     title: string
     description: string
     url: string
-    content: string
     logo_url?: string
     category_id: number
     created_at?: Date | string
@@ -5973,7 +6030,6 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
     logo_url?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5985,7 +6041,6 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
     logo_url?: StringFieldUpdateOperationsInput | string
     category_id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5997,7 +6052,6 @@ export namespace Prisma {
     title: string
     description: string
     url: string
-    content: string
     logo_url?: string
     category_id: number
     created_at?: Date | string
@@ -6008,7 +6062,6 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
     logo_url?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6019,7 +6072,6 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
     logo_url?: StringFieldUpdateOperationsInput | string
     category_id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6198,32 +6250,41 @@ export namespace Prisma {
   }
 
   export type AiToolsCategoryCountOrderByAggregateInput = {
-    id?: SortOrder
-    title?: SortOrder
+    category_id?: SortOrder
+    category_name?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    icon?: SortOrder
+    description?: SortOrder
+    submitter?: SortOrder
   }
 
   export type AiToolsCategoryAvgOrderByAggregateInput = {
-    id?: SortOrder
+    category_id?: SortOrder
   }
 
   export type AiToolsCategoryMaxOrderByAggregateInput = {
-    id?: SortOrder
-    title?: SortOrder
+    category_id?: SortOrder
+    category_name?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    icon?: SortOrder
+    description?: SortOrder
+    submitter?: SortOrder
   }
 
   export type AiToolsCategoryMinOrderByAggregateInput = {
-    id?: SortOrder
-    title?: SortOrder
+    category_id?: SortOrder
+    category_name?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    icon?: SortOrder
+    description?: SortOrder
+    submitter?: SortOrder
   }
 
   export type AiToolsCategorySumOrderByAggregateInput = {
-    id?: SortOrder
+    category_id?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -6252,7 +6313,6 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     url?: SortOrder
-    content?: SortOrder
     logo_url?: SortOrder
     category_id?: SortOrder
     created_at?: SortOrder
@@ -6269,7 +6329,6 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     url?: SortOrder
-    content?: SortOrder
     logo_url?: SortOrder
     category_id?: SortOrder
     created_at?: SortOrder
@@ -6281,7 +6340,6 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     url?: SortOrder
-    content?: SortOrder
     logo_url?: SortOrder
     category_id?: SortOrder
     created_at?: SortOrder
@@ -6509,7 +6567,6 @@ export namespace Prisma {
     title: string
     description: string
     url: string
-    content: string
     logo_url?: string
     created_at?: Date | string
     updated_at?: Date | string
@@ -6520,7 +6577,6 @@ export namespace Prisma {
     title: string
     description: string
     url: string
-    content: string
     logo_url?: string
     created_at?: Date | string
     updated_at?: Date | string
@@ -6560,7 +6616,6 @@ export namespace Prisma {
     title?: StringFilter<"AiTools"> | string
     description?: StringFilter<"AiTools"> | string
     url?: StringFilter<"AiTools"> | string
-    content?: StringFilter<"AiTools"> | string
     logo_url?: StringFilter<"AiTools"> | string
     category_id?: IntFilter<"AiTools"> | number
     created_at?: DateTimeFilter<"AiTools"> | Date | string
@@ -6568,16 +6623,22 @@ export namespace Prisma {
   }
 
   export type AiToolsCategoryCreateWithoutAiToolsInput = {
-    title: string
+    category_name: string
     created_at?: Date | string
     updated_at?: Date | string
+    icon?: string | null
+    description?: string | null
+    submitter?: string
   }
 
   export type AiToolsCategoryUncheckedCreateWithoutAiToolsInput = {
-    id?: number
-    title: string
+    category_id?: number
+    category_name: string
     created_at?: Date | string
     updated_at?: Date | string
+    icon?: string | null
+    description?: string | null
+    submitter?: string
   }
 
   export type AiToolsCategoryCreateOrConnectWithoutAiToolsInput = {
@@ -6597,16 +6658,22 @@ export namespace Prisma {
   }
 
   export type AiToolsCategoryUpdateWithoutAiToolsInput = {
-    title?: StringFieldUpdateOperationsInput | string
+    category_name?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    submitter?: StringFieldUpdateOperationsInput | string
   }
 
   export type AiToolsCategoryUncheckedUpdateWithoutAiToolsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
+    category_id?: IntFieldUpdateOperationsInput | number
+    category_name?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    submitter?: StringFieldUpdateOperationsInput | string
   }
 
   export type AiToolsCreateManyCategoryInput = {
@@ -6614,7 +6681,6 @@ export namespace Prisma {
     title: string
     description: string
     url: string
-    content: string
     logo_url?: string
     created_at?: Date | string
     updated_at?: Date | string
@@ -6624,7 +6690,6 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
     logo_url?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6635,7 +6700,6 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
     logo_url?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6646,7 +6710,6 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
     logo_url?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
