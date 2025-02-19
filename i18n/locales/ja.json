@@ -39,5 +39,13 @@
     "updated_at": "updated_at",
     "add": "Add Category",
     "op": "Operation"
+  },
+  "SignIn": {
+    "title": "ログイン",
+    "description": "ログインしてアカウントにアクセスします",
+    "wechat": "wechat",
+    "or": "または、電子メールを使用してログインします",
+    "register": "登録する",
+    "login": "ログイン"
   }
 }

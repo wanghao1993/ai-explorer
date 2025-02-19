@@ -11,9 +11,11 @@ import RouteConfig from "@/config/routerConfig";
 import { LogOut } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
+import { Button } from "./ui/button";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/auth";
-import { Button } from "./ui/button";
+import SessionContainer from "@/provider/sessionProvider";
+import LogOutButton from "./LogOut";
 
 export default async function User() {
   const locale = useLocale();
@@ -54,12 +56,7 @@ export default async function User() {
           ))}
           <DropdownMenuSeparator />
           <DropdownMenuItem>
-            <div className="flex items-center space-x-2 cursor-pointer">
-              <span>
-                <LogOut size={14} />
-              </span>
-              <span>{t("user.signout")}</span>
-            </div>
+            <LogOutButton />
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

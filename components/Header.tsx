@@ -12,9 +12,8 @@ const inter = Jersey_15({
 });
 const Header = () => {
   const locale = useLocale();
-  const t = useTranslations("Header");
   return (
-    <header className="text-text-100 py-1 px-2">
+    <header className="text-text-100 py-1 px-2 bg-white">
       <nav className="container mx-auto  flex justify-between items-center">
         <div className="flex items-center">
           <div className={`${inter.className} cursor-pointer text-3xl mr-4`}>

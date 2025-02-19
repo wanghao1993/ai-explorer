@@ -39,5 +39,13 @@
     "updated_at": "updated_at",
     "add": "Add Category",
     "op": "Operation"
+  },
+  "SignIn": {
+    "title": "Se connecter",
+    "description": "Connectez-vous pour accéder à votre compte",
+    "wechat": "Wechat",
+    "or": "Ou connectez-vous en utilisant un e-mail",
+    "register": "registre",
+    "login": "Se connecter"
   }
 }

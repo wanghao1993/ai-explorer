@@ -50,5 +50,21 @@
       "nameValidation": "请输入分类名称",
       "descriptionValidation": "请输入分类描述"
     }
+  },
+  "SignIn": {
+    "title": "登 录",
+    "description": "登录以访问您的帐户",
+    "form": {
+      "email": "邮箱",
+      "password": "密码",
+      "emailPlaceholder": "请输入邮箱",
+      "passwordPlaceholder": "请输入密码",
+      "emailValidation": "请输入邮箱",
+      "passwordValidation": "请输入密码"
+    },
+    "wechat": "微信",
+    "or": "或使用邮箱登录",
+    "register": "注册",
+    "login": "登录"
   }
 }
