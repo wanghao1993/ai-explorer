@@ -8,7 +8,7 @@
       "ja": "Japanese"
     },
     "user": {
-      "signout": "Sign Out",
+      "signout": "Sign out",
       "signIn": "Sign In"
     },
     "nav": {
@@ -39,5 +39,13 @@
     "updated_at": "updated_at",
     "add": "Add Category",
     "op": "Operation"
+  },
+  "SignIn": {
+    "title": "Sign in",
+    "description": "Sign in to access your account",
+    "wechat": "WeChat",
+    "or": "Or Sign in using email",
+    "register": "Register",
+    "login": "Sign In"
   }
 }
