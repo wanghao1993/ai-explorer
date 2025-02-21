@@ -2193,6 +2193,7 @@ export namespace Prisma {
     email: string | null
     code: string | null
     createdAt: Date | null
+    type: string | null
     updatedAt: Date | null
   }
 
@@ -2201,6 +2202,7 @@ export namespace Prisma {
     email: string | null
     code: string | null
     createdAt: Date | null
+    type: string | null
     updatedAt: Date | null
   }
 
@@ -2209,6 +2211,7 @@ export namespace Prisma {
     email: number
     code: number
     createdAt: number
+    type: number
     updatedAt: number
     _all: number
   }
@@ -2219,6 +2222,7 @@ export namespace Prisma {
     email?: true
     code?: true
     createdAt?: true
+    type?: true
     updatedAt?: true
   }
 
@@ -2227,6 +2231,7 @@ export namespace Prisma {
     email?: true
     code?: true
     createdAt?: true
+    type?: true
     updatedAt?: true
   }
 
@@ -2235,6 +2240,7 @@ export namespace Prisma {
     email?: true
     code?: true
     createdAt?: true
+    type?: true
     updatedAt?: true
     _all?: true
   }
@@ -2316,6 +2322,7 @@ export namespace Prisma {
     email: string
     code: string
     createdAt: Date
+    type: string
     updatedAt: Date
     _count: EmailVerificationCountAggregateOutputType | null
     _min: EmailVerificationMinAggregateOutputType | null
@@ -2341,6 +2348,7 @@ export namespace Prisma {
     email?: boolean
     code?: boolean
     createdAt?: boolean
+    type?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["emailVerification"]>
 
@@ -2349,6 +2357,7 @@ export namespace Prisma {
     email?: boolean
     code?: boolean
     createdAt?: boolean
+    type?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["emailVerification"]>
 
@@ -2357,6 +2366,7 @@ export namespace Prisma {
     email?: boolean
     code?: boolean
     createdAt?: boolean
+    type?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["emailVerification"]>
 
@@ -2365,10 +2375,11 @@ export namespace Prisma {
     email?: boolean
     code?: boolean
     createdAt?: boolean
+    type?: boolean
     updatedAt?: boolean
   }
 
-  export type EmailVerificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "code" | "createdAt" | "updatedAt", ExtArgs["result"]["emailVerification"]>
+  export type EmailVerificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "code" | "createdAt" | "type" | "updatedAt", ExtArgs["result"]["emailVerification"]>
 
   export type $EmailVerificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "EmailVerification"
@@ -2378,6 +2389,7 @@ export namespace Prisma {
       email: string
       code: string
       createdAt: Date
+      type: string
       updatedAt: Date
     }, ExtArgs["result"]["emailVerification"]>
     composites: {}
@@ -2806,6 +2818,7 @@ export namespace Prisma {
     readonly email: FieldRef<"EmailVerification", 'String'>
     readonly code: FieldRef<"EmailVerification", 'String'>
     readonly createdAt: FieldRef<"EmailVerification", 'DateTime'>
+    readonly type: FieldRef<"EmailVerification", 'String'>
     readonly updatedAt: FieldRef<"EmailVerification", 'DateTime'>
   }
     
@@ -5434,6 +5447,7 @@ export namespace Prisma {
     email: 'email',
     code: 'code',
     createdAt: 'createdAt',
+    type: 'type',
     updatedAt: 'updatedAt'
   };
 
@@ -5625,6 +5639,7 @@ export namespace Prisma {
     email?: StringFilter<"EmailVerification"> | string
     code?: StringFilter<"EmailVerification"> | string
     createdAt?: DateTimeFilter<"EmailVerification"> | Date | string
+    type?: StringFilter<"EmailVerification"> | string
     updatedAt?: DateTimeFilter<"EmailVerification"> | Date | string
   }
 
@@ -5633,6 +5648,7 @@ export namespace Prisma {
     email?: SortOrder
     code?: SortOrder
     createdAt?: SortOrder
+    type?: SortOrder
     updatedAt?: SortOrder
   }
 
@@ -5644,6 +5660,7 @@ export namespace Prisma {
     email?: StringFilter<"EmailVerification"> | string
     code?: StringFilter<"EmailVerification"> | string
     createdAt?: DateTimeFilter<"EmailVerification"> | Date | string
+    type?: StringFilter<"EmailVerification"> | string
     updatedAt?: DateTimeFilter<"EmailVerification"> | Date | string
   }, "id">
 
@@ -5652,6 +5669,7 @@ export namespace Prisma {
     email?: SortOrder
     code?: SortOrder
     createdAt?: SortOrder
+    type?: SortOrder
     updatedAt?: SortOrder
     _count?: EmailVerificationCountOrderByAggregateInput
     _max?: EmailVerificationMaxOrderByAggregateInput
@@ -5666,6 +5684,7 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"EmailVerification"> | string
     code?: StringWithAggregatesFilter<"EmailVerification"> | string
     createdAt?: DateTimeWithAggregatesFilter<"EmailVerification"> | Date | string
+    type?: StringWithAggregatesFilter<"EmailVerification"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"EmailVerification"> | Date | string
   }
 
@@ -5883,6 +5902,7 @@ export namespace Prisma {
     email: string
     code: string
     createdAt?: Date | string
+    type: string
     updatedAt?: Date | string
   }
 
@@ -5891,6 +5911,7 @@ export namespace Prisma {
     email: string
     code: string
     createdAt?: Date | string
+    type: string
     updatedAt?: Date | string
   }
 
@@ -5899,6 +5920,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    type?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -5907,6 +5929,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    type?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -5915,6 +5938,7 @@ export namespace Prisma {
     email: string
     code: string
     createdAt?: Date | string
+    type: string
     updatedAt?: Date | string
   }
 
@@ -5923,6 +5947,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    type?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -5931,6 +5956,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    type?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -6209,6 +6235,7 @@ export namespace Prisma {
     email?: SortOrder
     code?: SortOrder
     createdAt?: SortOrder
+    type?: SortOrder
     updatedAt?: SortOrder
   }
 
@@ -6217,6 +6244,7 @@ export namespace Prisma {
     email?: SortOrder
     code?: SortOrder
     createdAt?: SortOrder
+    type?: SortOrder
     updatedAt?: SortOrder
   }
 
@@ -6225,6 +6253,7 @@ export namespace Prisma {
     email?: SortOrder
     code?: SortOrder
     createdAt?: SortOrder
+    type?: SortOrder
     updatedAt?: SortOrder
   }
 

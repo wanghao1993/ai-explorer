@@ -15,6 +15,7 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Github } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 export default function LoginPage() {
   const t = useTranslations("SignIn");
   return (
@@ -103,7 +104,9 @@ export default function LoginPage() {
           </div>
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Button variant="outline">{t("register")}</Button>
+          <Button variant="outline">
+            <Link href={"/auth/sign-up"}>{t("register")}</Link>
+          </Button>
           <Button>{t("login")}</Button>
         </CardFooter>
       </Card>

@@ -23,5 +23,10 @@ export declare namespace AiTypes {
   interface AiTools {
     [key: string]: AiTool[];
   }
+
+  enum VerifyType {
+    REGISTER, // 注册
+    PASSWORD, // 修改密码
+  }
 }
 export {};

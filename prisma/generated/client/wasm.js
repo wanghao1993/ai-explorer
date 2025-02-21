@@ -132,6 +132,7 @@ exports.Prisma.EmailVerificationScalarFieldEnum = {
   email: 'email',
   code: 'code',
   createdAt: 'createdAt',
+  type: 'type',
   updatedAt: 'updatedAt'
 };
 

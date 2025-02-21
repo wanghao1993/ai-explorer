@@ -66,5 +66,44 @@
     "or": "或使用邮箱登录",
     "register": "注册",
     "login": "登录"
+  },
+  "validation": {
+    "email": "请输入有效的电子邮箱地址。",
+    "verificationCode": "验证码必须是6位数字。",
+    "password": {
+      "length": "密码至少需要8个字符。",
+      "format": "密码至少需要包含一个字母和一个数字。",
+      "mismatch": "密码和确认密码不匹配。"
+    },
+    "emailRequired": "请先输入电子邮箱地址"
+  },
+  "form": {
+    "email": "电子邮箱",
+    "verificationCode": {
+      "label": "验证码",
+      "placeholder": "6位数字验证码",
+      "send": "发送验证码"
+    },
+    "password": {
+      "label": "密码",
+      "description": "密码至少需要8个字符，包含字母和数字。"
+    },
+    "confirmPassword": "确认密码",
+    "submit": "注册"
+  },
+  "toast": {
+    "registerSuccess": {
+      "title": "注册成功",
+      "description": "您已成功注册账户。"
+    },
+    "codeSent": {
+      "title": "验证码已发送",
+      "description": "请检查您的邮箱。"
+    }
+  },
+  "card": {
+    "title": "注册",
+    "description": "创建一个新账户",
+    "signIn": "已有账户？登录"
   }
 }

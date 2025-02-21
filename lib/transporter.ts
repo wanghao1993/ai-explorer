@@ -1,7 +1,7 @@
+// 导入nodemailer模块
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-  service: "qq",
   host: "smtp.qq.com",
   port: 465,
   secure: true,
@@ -10,6 +10,7 @@ const transporter = nodemailer.createTransport({
     user: process.env.QQ_USER,
     pass: process.env.QQ_PASS,
   },
+  logger: true,
 });
 
 export default transporter;

@@ -29,6 +29,7 @@ model EmailVerification {
   email     String
   code      String
   createdAt DateTime @default(now())
+  type      String
   updatedAt DateTime @updatedAt
 }
 

@@ -26,30 +26,35 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Link, useRouter } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
+import { post } from "@/lib/fetch";
+import { Loader2 } from "lucide-react";
 
-const registerSchema = z
-  .object({
-    email: z.string().email({
-      message: "请输入有效的电子邮箱地址。",
-    }),
-    verificationCode: z.string().length(6, {
-      message: "验证码必须是6位数字。",
-    }),
-    password: z
-      .string()
-      .min(8, {
-        message: "密码至少需要8个字符。",
-      })
-      .regex(/^(?=.*[A-Za-z])(?=.*\d)/, {
-        message: "密码至少需要包含一个字母和一个数字。",
-      }),
-    confirmPassword: z.string(),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "密码和确认密码不匹配。",
-    path: ["confirmPassword"],
-  });
 export default function RegisterPage() {
+  const t = useTranslations();
+  // 校验数据
+  const registerSchema = z
+    .object({
+      email: z.string().email({
+        message: t("validation.email"),
+      }),
+      verificationCode: z.string().length(6, {
+        message: t("validation.verificationCode"),
+      }),
+      password: z
+        .string()
+        .min(8, {
+          message: t("validation.password.length"),
+        })
+        .regex(/^(?=.*[A-Za-z])(?=.*\d)/, {
+          message: t("validation.password.format"),
+        }),
+      confirmPassword: z.string(),
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      message: t("validation.password.mismatch"),
+      path: ["confirmPassword"],
+    });
   const router = useRouter();
   const [, setIsVerificationSent] = useState(false);
 
@@ -67,8 +72,8 @@ export default function RegisterPage() {
     // 这里应该是您的注册逻辑
     console.log(values);
     toast({
-      title: "注册成功",
-      description: "您已成功注册账户。",
+      title: t("toast.registerSuccess.title"),
+      description: t("toast.registerSuccess.description"),
     });
     router.push("/login");
   }
@@ -81,28 +86,37 @@ export default function RegisterPage() {
     }
   }, [countdown]);
 
+  // 发送验证码
+  const [submitLoading, setSubmitLoading] = useState(false);
   const sendVerificationCode = async () => {
     const email = form.getValues("email");
     if (!email) {
-      form.setError("email", { message: "请先输入电子邮箱地址" });
+      form.setError("email", { message: t("validation.emailRequired") });
       return;
     }
+    setSubmitLoading(true);
     // 这里应该是发送验证码的逻辑
-    console.log(`发送验证码到 ${email}`);
-    setIsVerificationSent(true);
-    setCountdown(60);
-    toast({
-      title: "验证码已发送",
-      description: "请检查您的邮箱。",
-    });
+    try {
+      await post("email", {
+        email: email,
+      });
+      setIsVerificationSent(true);
+      setCountdown(60);
+      toast({
+        title: t("toast.codeSent.title"),
+        description: t("toast.codeSent.description"),
+      });
+    } finally {
+      setSubmitLoading(false);
+    }
   };
 
   return (
     <div className="max-w-md mx-auto absolute inset-0 flex items-center justify-center">
       <Card className="w-[24rem]">
         <CardHeader>
-          <CardTitle>注册</CardTitle>
-          <CardDescription>创建一个新账户</CardDescription>
+          <CardTitle>{t("card.title")}</CardTitle>
+          <CardDescription>{t("card.description")}</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -112,7 +126,7 @@ export default function RegisterPage() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>电子邮箱</FormLabel>
+                    <FormLabel>{t("form.email")}</FormLabel>
                     <FormControl>
                       <div className="flex space-x-2">
                         <Input
@@ -125,7 +139,12 @@ export default function RegisterPage() {
                           onClick={sendVerificationCode}
                           disabled={countdown > 0}
                         >
-                          {countdown > 0 ? `${countdown}s` : "发送验证码"}
+                          {submitLoading && (
+                            <Loader2 className="animate-spin" />
+                          )}
+                          {countdown > 0
+                            ? `${countdown}s`
+                            : `${t("form.verificationCode.send")}`}
                         </Button>
                       </div>
                     </FormControl>
@@ -138,9 +157,12 @@ export default function RegisterPage() {
                 name="verificationCode"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>验证码</FormLabel>
+                    <FormLabel>{t("form.verificationCode.label")}</FormLabel>
                     <FormControl>
-                      <Input placeholder="6位数字验证码" {...field} />
+                      <Input
+                        placeholder={t("form.verificationCode.placeholder")}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -151,12 +173,12 @@ export default function RegisterPage() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>密码</FormLabel>
+                    <FormLabel>{t("form.password.label")}</FormLabel>
                     <FormControl>
                       <Input type="password" {...field} />
                     </FormControl>
                     <FormDescription>
-                      密码至少需要8个字符，包含字母和数字。
+                      {t("form.password.description")}
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -167,7 +189,7 @@ export default function RegisterPage() {
                 name="confirmPassword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>确认密码</FormLabel>
+                    <FormLabel>{t("form.confirmPassword")}</FormLabel>
                     <FormControl>
                       <Input type="password" {...field} />
                     </FormControl>
@@ -176,7 +198,7 @@ export default function RegisterPage() {
                 )}
               />
               <Button type="submit" className="w-full">
-                注册
+                {t("form.submit")}
               </Button>
             </form>
           </Form>

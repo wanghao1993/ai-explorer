@@ -3,6 +3,7 @@ import { createApiResponse } from "@/lib/res";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import transporter from "@/lib/transporter";
+import { AiTypes } from "@/types/ai";
 /**
  * @description 发送验证码
  * @param request
@@ -12,6 +13,7 @@ export async function POST(request: NextRequest) {
   // 验证邮箱格式
   const schema = z.object({
     email: z.string().email("Invalid email"),
+    type: z.nativeEnum(AiTypes.VerifyType),
   });
   // 获取请求体
   const body = await request.json();
@@ -27,11 +29,15 @@ export async function POST(request: NextRequest) {
         subject: "AI Explorer 验证码",
         html: "10分钟内有效，验证码：<b>" + code + "</b>",
       });
+
       // 将验证码存入数据库
       await prisma.emailVerification.create({
         data: {
           email: validationResult.data.email,
           code: code,
+          type:
+            validationResult.data.type.toString() ||
+            AiTypes.VerifyType.REGISTER.toString(),
         },
       });
       return NextResponse.json(

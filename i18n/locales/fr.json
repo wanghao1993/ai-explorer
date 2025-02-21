@@ -47,5 +47,14 @@
     "or": "Ou connectez-vous en utilisant un e-mail",
     "register": "registre",
     "login": "Se connecter"
+  },
+  "SignUp": {
+    "validation": {
+      "email": ""
+    }
+  },
+  "validation": {
+    "email": "S'il vous plaît, mettez une adresse email valide.",
+    "verificationCode": "Le code de vérification doit être à 6 chiffres."
   }
 }
