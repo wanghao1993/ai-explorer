@@ -47,5 +47,17 @@
     "or": "Or Sign in using email",
     "register": "Register",
     "login": "Sign In"
+  },
+  "SignUp": {
+    "validation": {
+      "email": ""
+    }
+  },
+  "validation": {
+    "email": "Please enter a valid email address.",
+    "verificationCode": "The verification code must be 6 digits.",
+    "password": {
+      "length": "The password requires at least 8 characters."
+    }
   }
 }
