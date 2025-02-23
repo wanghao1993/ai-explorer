@@ -50,6 +50,7 @@ model AiTools {
   description String
   url         String
   logo_url    String          @default("https://ai-explor.cn/favicon.ico")
+  content     String
   category_id Int
   created_at  DateTime        @default(now())
   updated_at  DateTime        @updatedAt

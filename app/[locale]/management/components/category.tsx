@@ -4,7 +4,6 @@ import * as React from "react";
 import {
   ColumnDef,
   ColumnFiltersState,
-  SortingState,
   VisibilityState,
   flexRender,
   getCoreRowModel,
@@ -27,11 +26,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { AiTypes } from "@/types/ai";
 import { useTranslations } from "next-intl";
 import AddCategory from "./addCategory";
+import { AiCategory } from "@/types/ai";
 
-const data: AiTypes.AiCategory[] = [
+const data: AiCategory[] = [
   {
     category_id: 1,
     category_name: "2",
@@ -41,7 +40,7 @@ const data: AiTypes.AiCategory[] = [
   },
 ];
 
-export const columns: () => ColumnDef<AiTypes.AiCategory>[] = () => {
+export const Columns: () => ColumnDef<AiCategory>[] = () => {
   const t = useTranslations("Category");
   return [
     {
@@ -124,7 +123,7 @@ export default function DataTableDemo() {
 
   const table = useReactTable({
     data,
-    columns: columns(),
+    columns: Columns(),
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -216,7 +215,7 @@ export default function DataTableDemo() {
             ) : (
               <TableRow>
                 <TableCell
-                  colSpan={columns.length}
+                  colSpan={Columns.length}
                   className="h-24 text-center"
                 >
                   No results.

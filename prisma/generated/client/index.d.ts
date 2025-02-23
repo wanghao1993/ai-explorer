@@ -4320,6 +4320,7 @@ export namespace Prisma {
     description: string | null
     url: string | null
     logo_url: string | null
+    content: string | null
     category_id: number | null
     created_at: Date | null
     updated_at: Date | null
@@ -4331,6 +4332,7 @@ export namespace Prisma {
     description: string | null
     url: string | null
     logo_url: string | null
+    content: string | null
     category_id: number | null
     created_at: Date | null
     updated_at: Date | null
@@ -4342,6 +4344,7 @@ export namespace Prisma {
     description: number
     url: number
     logo_url: number
+    content: number
     category_id: number
     created_at: number
     updated_at: number
@@ -4365,6 +4368,7 @@ export namespace Prisma {
     description?: true
     url?: true
     logo_url?: true
+    content?: true
     category_id?: true
     created_at?: true
     updated_at?: true
@@ -4376,6 +4380,7 @@ export namespace Prisma {
     description?: true
     url?: true
     logo_url?: true
+    content?: true
     category_id?: true
     created_at?: true
     updated_at?: true
@@ -4387,6 +4392,7 @@ export namespace Prisma {
     description?: true
     url?: true
     logo_url?: true
+    content?: true
     category_id?: true
     created_at?: true
     updated_at?: true
@@ -4485,6 +4491,7 @@ export namespace Prisma {
     description: string
     url: string
     logo_url: string
+    content: string
     category_id: number
     created_at: Date
     updated_at: Date
@@ -4515,6 +4522,7 @@ export namespace Prisma {
     description?: boolean
     url?: boolean
     logo_url?: boolean
+    content?: boolean
     category_id?: boolean
     created_at?: boolean
     updated_at?: boolean
@@ -4527,6 +4535,7 @@ export namespace Prisma {
     description?: boolean
     url?: boolean
     logo_url?: boolean
+    content?: boolean
     category_id?: boolean
     created_at?: boolean
     updated_at?: boolean
@@ -4539,6 +4548,7 @@ export namespace Prisma {
     description?: boolean
     url?: boolean
     logo_url?: boolean
+    content?: boolean
     category_id?: boolean
     created_at?: boolean
     updated_at?: boolean
@@ -4551,12 +4561,13 @@ export namespace Prisma {
     description?: boolean
     url?: boolean
     logo_url?: boolean
+    content?: boolean
     category_id?: boolean
     created_at?: boolean
     updated_at?: boolean
   }
 
-  export type AiToolsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "url" | "logo_url" | "category_id" | "created_at" | "updated_at", ExtArgs["result"]["aiTools"]>
+  export type AiToolsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "url" | "logo_url" | "content" | "category_id" | "created_at" | "updated_at", ExtArgs["result"]["aiTools"]>
   export type AiToolsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | AiToolsCategoryDefaultArgs<ExtArgs>
   }
@@ -4578,6 +4589,7 @@ export namespace Prisma {
       description: string
       url: string
       logo_url: string
+      content: string
       category_id: number
       created_at: Date
       updated_at: Date
@@ -5010,6 +5022,7 @@ export namespace Prisma {
     readonly description: FieldRef<"AiTools", 'String'>
     readonly url: FieldRef<"AiTools", 'String'>
     readonly logo_url: FieldRef<"AiTools", 'String'>
+    readonly content: FieldRef<"AiTools", 'String'>
     readonly category_id: FieldRef<"AiTools", 'Int'>
     readonly created_at: FieldRef<"AiTools", 'DateTime'>
     readonly updated_at: FieldRef<"AiTools", 'DateTime'>
@@ -5473,6 +5486,7 @@ export namespace Prisma {
     description: 'description',
     url: 'url',
     logo_url: 'logo_url',
+    content: 'content',
     category_id: 'category_id',
     created_at: 'created_at',
     updated_at: 'updated_at'
@@ -5764,6 +5778,7 @@ export namespace Prisma {
     description?: StringFilter<"AiTools"> | string
     url?: StringFilter<"AiTools"> | string
     logo_url?: StringFilter<"AiTools"> | string
+    content?: StringFilter<"AiTools"> | string
     category_id?: IntFilter<"AiTools"> | number
     created_at?: DateTimeFilter<"AiTools"> | Date | string
     updated_at?: DateTimeFilter<"AiTools"> | Date | string
@@ -5776,6 +5791,7 @@ export namespace Prisma {
     description?: SortOrder
     url?: SortOrder
     logo_url?: SortOrder
+    content?: SortOrder
     category_id?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
@@ -5791,6 +5807,7 @@ export namespace Prisma {
     description?: StringFilter<"AiTools"> | string
     url?: StringFilter<"AiTools"> | string
     logo_url?: StringFilter<"AiTools"> | string
+    content?: StringFilter<"AiTools"> | string
     category_id?: IntFilter<"AiTools"> | number
     created_at?: DateTimeFilter<"AiTools"> | Date | string
     updated_at?: DateTimeFilter<"AiTools"> | Date | string
@@ -5803,6 +5820,7 @@ export namespace Prisma {
     description?: SortOrder
     url?: SortOrder
     logo_url?: SortOrder
+    content?: SortOrder
     category_id?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
@@ -5822,6 +5840,7 @@ export namespace Prisma {
     description?: StringWithAggregatesFilter<"AiTools"> | string
     url?: StringWithAggregatesFilter<"AiTools"> | string
     logo_url?: StringWithAggregatesFilter<"AiTools"> | string
+    content?: StringWithAggregatesFilter<"AiTools"> | string
     category_id?: IntWithAggregatesFilter<"AiTools"> | number
     created_at?: DateTimeWithAggregatesFilter<"AiTools"> | Date | string
     updated_at?: DateTimeWithAggregatesFilter<"AiTools"> | Date | string
@@ -6036,6 +6055,7 @@ export namespace Prisma {
     description: string
     url: string
     logo_url?: string
+    content: string
     created_at?: Date | string
     updated_at?: Date | string
     category: AiToolsCategoryCreateNestedOneWithoutAiToolsInput
@@ -6047,6 +6067,7 @@ export namespace Prisma {
     description: string
     url: string
     logo_url?: string
+    content: string
     category_id: number
     created_at?: Date | string
     updated_at?: Date | string
@@ -6057,6 +6078,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     logo_url?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: AiToolsCategoryUpdateOneRequiredWithoutAiToolsNestedInput
@@ -6068,6 +6090,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     logo_url?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     category_id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6079,6 +6102,7 @@ export namespace Prisma {
     description: string
     url: string
     logo_url?: string
+    content: string
     category_id: number
     created_at?: Date | string
     updated_at?: Date | string
@@ -6089,6 +6113,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     logo_url?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6099,6 +6124,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     logo_url?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     category_id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6343,6 +6369,7 @@ export namespace Prisma {
     description?: SortOrder
     url?: SortOrder
     logo_url?: SortOrder
+    content?: SortOrder
     category_id?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
@@ -6359,6 +6386,7 @@ export namespace Prisma {
     description?: SortOrder
     url?: SortOrder
     logo_url?: SortOrder
+    content?: SortOrder
     category_id?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
@@ -6370,6 +6398,7 @@ export namespace Prisma {
     description?: SortOrder
     url?: SortOrder
     logo_url?: SortOrder
+    content?: SortOrder
     category_id?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
@@ -6597,6 +6626,7 @@ export namespace Prisma {
     description: string
     url: string
     logo_url?: string
+    content: string
     created_at?: Date | string
     updated_at?: Date | string
   }
@@ -6607,6 +6637,7 @@ export namespace Prisma {
     description: string
     url: string
     logo_url?: string
+    content: string
     created_at?: Date | string
     updated_at?: Date | string
   }
@@ -6646,6 +6677,7 @@ export namespace Prisma {
     description?: StringFilter<"AiTools"> | string
     url?: StringFilter<"AiTools"> | string
     logo_url?: StringFilter<"AiTools"> | string
+    content?: StringFilter<"AiTools"> | string
     category_id?: IntFilter<"AiTools"> | number
     created_at?: DateTimeFilter<"AiTools"> | Date | string
     updated_at?: DateTimeFilter<"AiTools"> | Date | string
@@ -6711,6 +6743,7 @@ export namespace Prisma {
     description: string
     url: string
     logo_url?: string
+    content: string
     created_at?: Date | string
     updated_at?: Date | string
   }
@@ -6720,6 +6753,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     logo_url?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6730,6 +6764,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     logo_url?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6740,6 +6775,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     logo_url?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }

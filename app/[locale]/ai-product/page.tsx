@@ -1,12 +1,12 @@
 import { get } from "@/lib/fetch";
 import SideBar from "./components/CategorySide";
-import { AiTypes } from "@/types/ai";
 import NavigationLink from "@/components/NavigationLink";
 import { AIToolCard } from "./components/AIToolCard";
+import { AiTools } from "@/types/ai";
 
 async function getAllAiTools() {
   try {
-    return await get<AiTypes.AiTools>("ai");
+    return await get<AiTools>("ai");
   } catch (error) {
     console.error(error);
     return {};
@@ -23,7 +23,7 @@ export default async function AiProduct() {
   const allTools = Object.values(data).flat();
   menuData.forEach((item) => {
     item.id =
-      allTools.find((tool) => tool.category.title === item.title)
+      allTools.find((tool) => tool.category.category_name === item.title)
         ?.category_id ?? -1;
   });
 

@@ -37,7 +37,8 @@ export async function POST(request: NextRequest) {
       data: body,
     });
     return NextResponse.json(createApiResponse(res));
-  } catch (error: any) {
+  } catch (error: unknown) {
+    console.error(error);
     return NextResponse.json(
       {
         error: "Failed to create or update post",

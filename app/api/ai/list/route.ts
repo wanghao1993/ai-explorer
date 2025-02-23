@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createApiResponse, createListApiResponse } from "@/lib/res";
+import { createListApiResponse } from "@/lib/res";
 import prisma from "@/lib/pg";
 
 export async function GET(request: NextRequest) {
@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
     const pageSize = limit ? parseInt(limit, 10) : 10;
     const skip = (pageNumber - 1) * pageSize;
     const take = pageSize;
-    const filter: any = {};
+    const filter: Record<string, unknown> = {};
 
     if (title) {
       filter.title = {
@@ -41,7 +41,8 @@ export async function GET(request: NextRequest) {
       where: filter,
     });
     return NextResponse.json(createListApiResponse(list, total));
-  } catch (error: any) {
+  } catch (error: unknown) {
+    console.error(error);
     return NextResponse.json(
       {
         error: "Failed to get list",

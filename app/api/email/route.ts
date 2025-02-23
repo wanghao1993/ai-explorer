@@ -3,7 +3,7 @@ import { createApiResponse } from "@/lib/res";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import transporter from "@/lib/transporter";
-import { AiTypes } from "@/types/ai";
+import { VerifyType } from "@/types/ai";
 /**
  * @description 发送验证码
  * @param request
@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
   // 验证邮箱格式
   const schema = z.object({
     email: z.string().email("Invalid email"),
-    type: z.nativeEnum(AiTypes.VerifyType),
+    type: z.nativeEnum(VerifyType),
   });
   // 获取请求体
   const body = await request.json();
@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
           code: code,
           type:
             validationResult.data.type.toString() ||
-            AiTypes.VerifyType.REGISTER.toString(),
+            VerifyType.REGISTER.toString(),
         },
       });
       return NextResponse.json(

@@ -152,6 +152,7 @@ exports.Prisma.AiToolsScalarFieldEnum = {
   description: 'description',
   url: 'url',
   logo_url: 'logo_url',
+  content: 'content',
   category_id: 'category_id',
   created_at: 'created_at',
   updated_at: 'updated_at'

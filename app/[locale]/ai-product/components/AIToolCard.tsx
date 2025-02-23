@@ -1,7 +1,7 @@
+import { AiTool } from "@/types/ai";
 import Image from "next/image";
-import { AiTypes } from "@/types/ai";
 
-export function AIToolCard({ title, description, logo_url }: AiTypes.AiTool) {
+export function AIToolCard({ title, description, logo_url }: AiTool) {
   return (
     <div
       title={title}

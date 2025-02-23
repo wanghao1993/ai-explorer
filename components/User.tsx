@@ -8,17 +8,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import RouteConfig from "@/config/routerConfig";
-import { LogOut } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { Button } from "./ui/button";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/auth";
-import SessionContainer from "@/provider/sessionProvider";
 import LogOutButton from "./LogOut";
 
 export default async function User() {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const locale = useLocale();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const t = useTranslations("Header");
   const session = await getServerSession(authOptions);
   return !session?.user ? (

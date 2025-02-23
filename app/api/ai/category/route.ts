@@ -9,7 +9,8 @@ export async function GET() {
       },
     });
     return NextResponse.json(createListApiResponse(list, list.length));
-  } catch (error: any) {
+  } catch (error: unknown) {
+    console.error(error);
     return NextResponse.json(
       { error: "Failed to get category list" },
       { status: 400 }

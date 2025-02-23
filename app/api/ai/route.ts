@@ -1,31 +1,41 @@
 import prisma from "@/lib/pg";
-import { AiTypes } from "@/types/ai";
 import { NextResponse } from "next/server";
 import { createApiResponse } from "@/lib/res";
+import { AiTools } from "@/types/ai";
 
 export async function GET() {
   try {
     const allCategory = await prisma.aiToolsCategory.findMany();
     const allCategoryMap: Record<number, string> = {};
     allCategory.forEach((item) => {
-      allCategoryMap[item.id] = item.title;
+      allCategoryMap[item.category_id] = item.category_name;
     });
     const data = await prisma.aiTools.findMany({
       include: {
         category: true,
       },
     });
-    const allData: AiTypes.AiTools = {};
+    const allData: AiTools = {};
     data.forEach((item) => {
       const title = allCategoryMap[item.category_id];
+      // 处理 category 中可能为 null 的字段
+      const processedItem = {
+        ...item,
+        category: {
+          ...item.category,
+          description: item.category.description || undefined,
+        },
+      };
+
       if (allData[title]) {
-        allData[title].push(item);
+        allData[title].push(processedItem);
       } else {
-        allData[title] = [item];
+        allData[title] = [processedItem];
       }
     });
     return NextResponse.json(createApiResponse(allData));
-  } catch (error: any) {
+  } catch (error: unknown) {
+    console.error(error);
     return NextResponse.json(
       { error: "Failed to get ai list" },
       { status: 500 }

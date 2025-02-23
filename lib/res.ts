@@ -1,23 +1,23 @@
-type ApiResponseData = {
+type ApiResponseData<T> = {
   success: boolean;
   message: string;
-  data: any;
+  data: T;
 };
 
-export function createApiResponse(
-  data: any,
+export function createApiResponse<T>(
+  data: T,
   success = true,
   message = "success"
-): ApiResponseData {
+): ApiResponseData<unknown> {
   return { success, message, data };
 }
 
-export function createListApiResponse(
-  data: any,
+export function createListApiResponse<T>(
+  data: T,
   total: number,
   success = true,
   message = "success"
-): ApiResponseData {
+): ApiResponseData<unknown> {
   return {
     success,
     message,

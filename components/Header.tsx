@@ -1,7 +1,7 @@
 import RouteConfig from "@/config/routerConfig";
 import User from "./User";
 import NavigationLink from "./NavigationLink";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { Jersey_15 } from "next/font/google";
 import LocaleSwitcher from "./LocaleSwitch";
 import Image from "next/image";
